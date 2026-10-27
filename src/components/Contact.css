@@ -1,0 +1,9 @@
+.ct{background:#eef3fb;color:#0a1b45;text-align:center;padding:clamp(70px,10vw,130px) 0;position:relative;overflow:hidden}
+.ct::before,.ct::after{content:"";position:absolute;width:200px;height:200px;background:#0a2358}
+.ct::before{left:0;top:0;border-bottom-right-radius:100%}.ct::after{right:0;bottom:0;border-top-left-radius:100%}
+.ct-logo{width:min(420px,80vw);margin:0 auto 30px;border-radius:24px;position:relative}
+.ct h2{color:#0a1b45;position:relative}
+.ct-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:40px;position:relative}
+.ct-list a{display:block;padding:22px 18px;border-radius:20px;background:#fff;border:1px solid #cddcf6;text-decoration:none;font-weight:600;overflow-wrap:anywhere;transition:transform .4s,box-shadow .4s}
+.ct-list a:hover{transform:translateY(-5px);box-shadow:0 18px 40px -18px rgba(42,109,240,.6)}
+.ct-list small{display:block;color:#2a6df0;font-weight:500;margin-bottom:4px}

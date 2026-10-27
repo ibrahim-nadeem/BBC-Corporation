@@ -1,0 +1,169 @@
+.ts {
+  position: relative;
+  height: 100vh;
+  min-height: 560px;
+  display: grid;
+  grid-template-rows: auto 1fr auto auto;
+  gap: 16px;
+  padding: 28px clamp(16px, 4vw, 56px) 20px;
+  background: #0c0c11;
+  color: #f4efe6;
+  overflow: hidden;
+}
+
+.ts-heading {
+  display: grid;
+  gap: 6px;
+  max-width: 720px;
+}
+
+.ts-eyebrow {
+  font-size: 13px;
+  color: #c9a55a;
+  letter-spacing: 0.04em;
+}
+
+.ts-heading h2 {
+  margin: 0;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 400;
+  font-size: clamp(26px, 4vw, 46px);
+  line-height: 1.1;
+}
+
+.ts-heading p {
+  margin: 0;
+  font-size: clamp(14px, 1.4vw, 17px);
+  color: #b9b4a8;
+}
+
+/* The scene: svg uses "meet", so the box has the hall colour to hide any letterboxing */
+.ts-visual {
+  position: relative;
+  min-height: 0;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid #2a2a36;
+  background: #101016;
+}
+
+.ts-visual svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.ts-vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, transparent 60%, rgba(0, 0, 0, 0.45) 100%);
+}
+
+/* Setup checklist */
+.ts-check {
+  position: absolute;
+  left: 14px;
+  top: 14px;
+  z-index: 2;
+  margin: 0;
+  padding: 12px 14px;
+  list-style: none;
+  display: grid;
+  gap: 8px;
+  background: rgba(12, 12, 17, 0.72);
+  backdrop-filter: blur(6px);
+  border: 1px solid #2a2a36;
+  border-radius: 6px;
+  font-size: 13px;
+}
+
+.ts-check li {
+  position: relative;
+  padding-left: 24px;
+  color: #6f6c66;
+  transition: color 0.3s;
+}
+
+.ts-check li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 14px;
+  height: 14px;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  border: 1.5px solid #4a4a56;
+  box-sizing: border-box;
+  display: grid;
+  place-items: center;
+  font-size: 9px;
+  line-height: 1;
+  color: #0c0c11;
+  transition: background 0.3s, border-color 0.3s;
+}
+
+.ts-check li[data-state='on'] {
+  color: #f2d38a;
+}
+.ts-check li[data-state='on']::before {
+  border-color: #f2d38a;
+  background: radial-gradient(circle, #f2d38a 38%, transparent 42%);
+}
+
+.ts-check li[data-state='done'] {
+  color: #b9b4a8;
+}
+.ts-check li[data-state='done']::before {
+  content: '\2713';
+  background: #c9a55a;
+  border-color: #c9a55a;
+}
+
+.ts-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+}
+
+.ts-footer > div {
+  display: grid;
+  gap: 2px;
+}
+
+.ts-step {
+  font-family: Georgia, serif;
+  font-size: clamp(16px, 2vw, 22px);
+  color: #f2d38a;
+}
+
+.ts-desc {
+  font-size: 14px;
+  color: #b9b4a8;
+}
+
+.ts-hint {
+  font-size: 13px;
+  color: #7d7a72;
+}
+
+.ts-progress {
+  height: 2px;
+  background: #23232e;
+}
+
+.ts-progress > div {
+  height: 100%;
+  background: #c9a55a;
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+@media (max-width: 760px) {
+  .ts-check { display: none; }  /* footer already shows the current step */
+  .ts-hint { display: none; }
+}

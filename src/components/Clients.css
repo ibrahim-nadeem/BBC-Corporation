@@ -1,0 +1,8 @@
+.cl-rows{margin-top:50px;display:grid;gap:18px;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.cl-row{overflow:hidden}
+.cl-track{display:flex;gap:18px;width:max-content;animation:marq 50s linear infinite}
+.cl-row.rev .cl-track{animation-direction:reverse}
+.cl-row:hover .cl-track{animation-play-state:paused}
+.cl-track img{height:clamp(86px,12vw,128px);width:auto;border-radius:18px;border:1px solid var(--line);transition:transform .4s}
+.cl-track img:hover{transform:scale(1.07)}
+@keyframes marq{to{transform:translateX(-50%)}}

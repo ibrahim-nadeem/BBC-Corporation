@@ -1,0 +1,7 @@
+.loader{position:fixed;inset:0;z-index:200;background:var(--bg);display:grid;place-items:center;text-align:center}
+.ld-in{width:min(420px,84vw)}
+.ld-logo{width:100%;border-radius:20px}
+.ld-flowers{display:flex;justify-content:center;gap:14px;color:var(--blush);margin-bottom:14px}
+.ld-bar{height:2px;background:var(--line);margin-top:22px;overflow:hidden}
+.ld-bar i{display:block;height:100%;transform:scaleX(0);transform-origin:left;background:linear-gradient(90deg,var(--blue),var(--blush))}
+.ld-n{margin-top:10px;font-size:.8rem;letter-spacing:.3em;color:var(--blush)}
