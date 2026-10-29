@@ -72,7 +72,7 @@ export const PORTFOLIO = [
 
 export const TEAM = [
   ['Faizan Khan', 'Founder', 'faizan'], ['Bushra Mehboob', 'Head of sales', 'bushra'], ['Usman', '3D Designer', 'usman'],
-  ['Ibrahim Butt', 'Execution Manager', 'executive-manager'], ['Moiz Mughal', 'Content Creater', 'moiz'], ['Youhaniz', 'Graphic Designer', 'youhaniz'],
+  ['Ibrahim Butt', 'Execution Manager', 'ibrahim'], ['Moiz Mughal', 'Content Creater', 'moiz'], ['Youhaniz', 'Graphic Designer', 'youhaniz'],
 ]
 
 export const CONTACT = [

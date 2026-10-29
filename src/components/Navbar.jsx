@@ -4,7 +4,7 @@ import { BRAND } from '../data.js'
 import './Navbar.css'
 
 const LINKS = [['Mission', '#mission', 'hand'], ['Vision', '#vision', 'star'], ['Services', '#services', 'stage'], ['Clients', '#clients', 'people'], ['Portfolio', '#portfolio', 'board'], ['Team', '#team', 'person']]
-const BREAK = 1000 // keep in sync with the media query in Navbar.css
+const BREAK = 1100 // keep in sync with the media query in Navbar.css
 
 export default function Navbar() {
   const [solid, setSolid] = useState(false)

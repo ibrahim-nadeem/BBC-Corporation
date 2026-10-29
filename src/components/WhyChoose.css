@@ -1,6 +1,6 @@
 .wy{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(24px,5vw,60px);margin-top:50px;align-items:center}
 .wy-img{border-radius:28px;overflow:hidden;border:1px solid var(--line);box-shadow:0 40px 80px -40px rgba(42,109,240,.6)}
-.wy-img img{display:block;width:100%;height:auto;aspect-ratio:1/1;object-fit:cover}
+.wy-img img{width:100%;height:auto}
 .wy-list{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .fl{perspective:900px;height:170px;outline:0;cursor:pointer}
 .fl-in{position:relative;width:100%;height:100%;transition:transform .8s cubic-bezier(.2,.8,.2,1);transform-style:preserve-3d}

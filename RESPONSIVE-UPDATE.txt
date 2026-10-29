@@ -1,0 +1,14 @@
+Business Bridge Corporate — responsive update
+
+Updated the responsive layout for mobile, tablet, laptop, and desktop sizes.
+- Added src/styles/responsive.css and imported it after global.css.
+- Refined navigation breakpoints so the mobile hamburger menu appears and works up to 1100px.
+- Improved section spacing, grids, image fitting, portfolio card alignment, contact cards, and small-screen typography.
+
+To run locally:
+1. Extract the project.
+2. Open a terminal in the bb folder.
+3. Run npm install
+4. Run npm run dev
+
+Note: A production build could not be verified in this environment because npm dependency installation timed out and Vite was unavailable. No application source dependencies were intentionally changed.

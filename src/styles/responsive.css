@@ -1,0 +1,149 @@
+/* Responsive layout refinements for Business Bridge Corporate */
+html { scroll-padding-top: 88px; }
+body { min-width: 320px; }
+#root { width: 100%; overflow: clip; }
+.wrap { width: 100%; }
+.sec { overflow: clip; }
+
+/* Keep media predictable and prevent accidental horizontal overflow. */
+img, svg, video, canvas { max-width: 100%; }
+img { height: auto; }
+button, a { touch-action: manipulation; }
+button { font: inherit; }
+
+/* Navigation */
+.nav { min-height: 76px; }
+.nav-brand img { max-width: min(48vw, 240px); object-fit: contain; object-position: left center; }
+.nav-links { flex-wrap: nowrap; }
+.nav-burger { flex: 0 0 44px; border-radius: 12px; }
+.mm { width: 100%; }
+.mm-in { padding-bottom: 6px; }
+
+/* Section headings and content alignment */
+.sec h2 { max-width: 100%; overflow-wrap: anywhere; }
+.sub { line-height: 1.75; }
+.card { min-width: 0; }
+.loc > *, .wy > *, .ct-list > *, .sv-grid > *, .tm-grid > * { min-width: 0; }
+
+/* Images used as visual features should not be zoomed out of alignment. */
+.vi-img img { width: 100%; height: auto; transform: none; object-fit: contain; }
+.wy-img img, .sv-img img, .map img { width: 100%; height: auto; display: block; }
+.pf-card { min-width: 0; }
+.pf-img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+.pf-cap { min-width: 0; }
+.pf-cap > span:last-child { min-width: 0; }
+.pf-cap small { overflow-wrap: anywhere; }
+.pf-lb img { display: block; width: auto; max-width: 100%; max-height: 78svh; object-fit: contain; }
+.ct-list a { min-width: 0; overflow-wrap: anywhere; word-break: break-word; }
+
+@media (max-width: 1100px) {
+  .nav-links { display: none; }
+  .nav-burger { display: block; }
+  .loc { grid-template-columns: 1fr; gap: 28px; }
+  .loc > div:first-child { text-align: center; }
+  .map { max-width: 620px; }
+  .wy { grid-template-columns: 1fr; }
+  .wy-img { width: 100%; max-width: 680px; margin-inline: auto; }
+  .wy-list { width: 100%; }
+}
+
+@media (max-width: 760px) {
+  html { scroll-padding-top: 74px; }
+  body { font-size: 15px; line-height: 1.65; }
+  .nav { min-height: 68px; padding: calc(9px + env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) 9px max(16px, env(safe-area-inset-left, 0px)); }
+  .nav-brand img { height: 46px; max-width: 54vw; }
+  .nav-burger { width: 42px; height: 42px; margin-right: 0; }
+  .nav-burger span { left: 9px; right: 9px; }
+  .hero { min-height: 100svh; min-height: 100dvh; padding: 100px 0 48px; }
+  .hero-in.wrap { padding-inline: 20px; }
+  .hero-logo { width: min(460px, 88vw); border-radius: 20px; }
+  .hero-tag { margin-top: 24px; }
+  .hero-loc { font-size: .88rem; }
+  .hero-btns { gap: 10px; margin-top: 26px; }
+  .btn { padding: 12px 18px; font-size: .9rem; }
+  .hero-scroll { margin-top: 28px; }
+  .sec { padding: 68px 0; }
+  .wrap { padding-inline: 20px; }
+  h2 { font-size: clamp(1.85rem, 7vw, 2.7rem); }
+  .sub { margin-top: 12px; }
+  .card { border-radius: 20px; padding: 22px 18px; }
+  .ms-title { margin: 76px 0 28px; }
+  .ring { width: min(100%, 540px); }
+  .ring-core { width: 44%; margin: -22% 0 0 -22%; }
+  .node { width: 21%; margin: -10.5% 0 0 -10.5%; }
+  .node svg { width: 26%; min-width: 16px; }
+  .ts { height: 82svh; height: 82dvh; min-height: 520px; }
+  .ts-txt { top: calc(78px + env(safe-area-inset-top, 0px)); }
+  .ts-txt h2 { font-size: clamp(1.6rem, 6vw, 2.25rem); }
+  .ts-layer { height: min(49svh, 380px); }
+  .ts-back { bottom: 6svh; }
+  .sv-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .sv-grid .card { min-height: 172px; gap: 16px; }
+  .sv-grid h3 { font-size: 1.05rem; overflow-wrap: anywhere; }
+  .sv-ic { width: 54px; height: 54px; }
+  .sv-ic svg { width: 27px; height: 27px; }
+  .sv-img { margin-top: 26px; border-radius: 20px; }
+  .sv-sol { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .sv-sol div { min-width: 0; padding: 18px 8px; overflow-wrap: anywhere; }
+  .wy { gap: 24px; margin-top: 30px; }
+  .wy-list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .fl { height: 165px; min-width: 0; }
+  .fl-f, .fl-b { padding: 14px; border-radius: 18px; }
+  .fl-f h3 { font-size: .86rem; }
+  .fl-b p { font-size: .8rem; }
+  .wy-stats { gap: 9px; margin-top: 30px; }
+  .wy-stats div { padding: 20px 6px; border-radius: 16px; }
+  .wy-stats span { font-size: .7rem; }
+  .cl-rows { gap: 12px; margin-top: 30px; }
+  .cl-track { gap: 12px; }
+  .cl-track img { height: 76px; border-radius: 13px; }
+  .pf-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 30px; }
+  .pf-card { aspect-ratio: 4 / 3; border-radius: 18px; }
+  .pf-card.wide { grid-column: auto; }
+  .pf-cap { gap: 8px; padding: 28px 9px 10px; align-items: flex-end; }
+  .pf-logo { width: 52px; height: 38px; flex: 0 0 52px; border-radius: 8px; }
+  .pf-cap small { font-size: .68rem; }
+  .tm-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 14px; margin-top: 36px; }
+  .tm-ph { width: min(140px, 82%); margin-bottom: 12px; }
+  .tm h3 { font-size: 1rem; overflow-wrap: anywhere; }
+  .tm p { font-size: .78rem; }
+  .ct { padding: 70px 0; }
+  .ct::before, .ct::after { width: 100px; height: 100px; }
+  .ct-logo { width: min(320px, 78vw); margin-bottom: 24px; }
+  .ct-list { grid-template-columns: 1fr; gap: 12px; margin-top: 28px; }
+  .ct-list a { padding: 18px 14px; border-radius: 16px; }
+  .ft { padding: 56px 20px calc(48px + env(safe-area-inset-bottom, 0px)); }
+  .ft-logo { height: 68px; max-width: 80vw; object-fit: contain; }
+}
+
+@media (max-width: 420px) {
+  .wrap { padding-inline: 16px; }
+  .nav { padding-inline: 14px; }
+  .nav-brand img { height: 42px; max-width: 58vw; }
+  .hero-in.wrap { padding-inline: 16px; }
+  .hero-btns { flex-direction: column; align-items: stretch; width: min(100%, 290px); margin-inline: auto; }
+  .btn { text-align: center; }
+  .hero-tag { font-size: 1.2rem; }
+  .ring-core { width: 42%; margin: -21% 0 0 -21%; padding: 5%; }
+  .ring-core h3 { font-size: clamp(.9rem, 4.2vw, 1.2rem); }
+  .ring-core p { font-size: .65rem; }
+  .node { font-size: .56rem; }
+  .node svg { display: none; }
+  .sv-grid { grid-template-columns: 1fr; }
+  .sv-grid .card { min-height: 130px; }
+  .wy-list { grid-template-columns: 1fr 1fr; }
+  .fl { height: 170px; }
+  .wy-stats { grid-template-columns: 1fr; }
+  .wy-stats div { padding: 16px 10px; }
+  .pf-grid { grid-template-columns: 1fr; }
+  .pf-card { aspect-ratio: 16 / 10; }
+  .pf-cap { padding: 38px 14px 12px; }
+  .pf-logo { width: 64px; height: 42px; flex-basis: 64px; }
+  .pf-cap small { font-size: .75rem; }
+  .ct-list a span { font-size: .9rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cl-track { animation: none; }
+  .hero-grid, .beam, .ring::before, .map-ring, .hero-scroll::after { animation: none; }
+}
