@@ -1,8 +1,151 @@
-.ts{position:relative;height:100svh;overflow:hidden;background:linear-gradient(var(--bg),var(--bg2) 55%,#0a1a40)}
-.ts-txt{position:absolute;top:calc(88px + env(safe-area-inset-top,0px));left:50%;transform:translateX(-50%);width:100%;z-index:3;pointer-events:none}
-.ts-layer{position:absolute;left:0;bottom:0;height:min(66svh,560px);aspect-ratio:3000/420;will-change:transform}
-.ts-back{bottom:min(8svh,60px);opacity:.85}
-.ts-layer svg{width:100%;height:100%;display:block}
-.tw{animation:tw 2.6s ease-in-out infinite alternate}
-@keyframes tw{from{opacity:.35}to{opacity:1}}
-@media(max-width:600px){.ts-txt h2{font-size:1.8rem}.ts-layer{height:min(52svh,420px)}}
+/* Space kept free at the top of the section. The scene starts below it, so the
+   top of the hall is never hidden under your header or cut by the screen edge.
+   Set it to your header's height (default 88px). */
+.evt {
+  --evt-top: 88px;
+  position: relative;
+  height: 100vh;
+  height: 100svh;
+  min-height: 520px;
+  overflow: hidden;
+  isolation: isolate;
+  background: #101016;
+  color: #f4efe6;
+}
+
+/* The scene fills the section edge to edge, starting below --evt-top.
+   The hall walls still continue up into that top strip (svg overflow is visible). */
+.evt-visual {
+  position: absolute;
+  top: var(--evt-top);
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.evt-visual svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: visible;
+  will-change: transform;
+}
+.evt-vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, transparent 55%, rgba(0, 0, 0, 0.5) 100%);
+}
+
+/* Title sits over the empty hall and fades out before the LED screens turn on */
+.evt-heading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  display: grid;
+  gap: 6px;
+  padding: calc(var(--evt-top) + 12px + env(safe-area-inset-top, 0px)) clamp(16px, 4vw, 56px) 56px;
+  background: linear-gradient(rgba(12, 12, 17, 0.85), rgba(12, 12, 17, 0));
+  pointer-events: none;
+}
+.evt-heading > * { max-width: 720px; }
+.evt-eyebrow { font-size: 13px; color: #c9a55a; letter-spacing: 0.04em; }
+.evt-heading h2 {
+  margin: 0;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 400;
+  font-size: clamp(26px, 4vw, 46px);
+  line-height: 1.1;
+}
+.evt-heading p { margin: 0; font-size: clamp(14px, 1.4vw, 17px); color: #b9b4a8; }
+
+/* Setup checklist, right edge */
+.evt-check {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  margin: 0;
+  padding: 12px 14px;
+  list-style: none;
+  display: grid;
+  gap: 8px;
+  background: rgba(12, 12, 17, 0.72);
+  backdrop-filter: blur(6px);
+  border: 1px solid #2a2a36;
+  border-radius: 6px;
+  font-size: 13px;
+}
+.evt-check li { position: relative; padding-left: 24px; color: #6f6c66; transition: color 0.3s; }
+.evt-check li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 14px;
+  height: 14px;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  border: 1.5px solid #4a4a56;
+  box-sizing: border-box;
+  display: grid;
+  place-items: center;
+  font-size: 9px;
+  line-height: 1;
+  color: #0c0c11;
+}
+.evt-check li[data-state='on'] { color: #f2d38a; }
+.evt-check li[data-state='on']::before {
+  border-color: #f2d38a;
+  background: radial-gradient(circle, #f2d38a 38%, transparent 42%);
+}
+.evt-check li[data-state='done'] { color: #b9b4a8; }
+.evt-check li[data-state='done']::before { content: '\2713'; background: #c9a55a; border-color: #c9a55a; }
+
+/* Current step, bottom */
+.evt-footer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+  padding: 56px clamp(16px, 4vw, 56px) calc(16px + env(safe-area-inset-bottom, 0px));
+  background: linear-gradient(rgba(12, 12, 17, 0), rgba(12, 12, 17, 0.88));
+  pointer-events: none;
+}
+.evt-footer > div { display: grid; gap: 2px; }
+.evt-step { font-family: Georgia, serif; font-size: clamp(16px, 2vw, 22px); color: #f2d38a; }
+.evt-desc { font-size: 14px; color: #cfcabd; }
+.evt-hint { font-size: 13px; color: #8a877f; }
+
+.evt-progress {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 4;
+  height: 2px;
+  background: #23232e;
+}
+.evt-progress > div {
+  height: 100%;
+  background: #c9a55a;
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+@media (max-width: 1000px) {
+  .evt-check { display: none; }  /* footer already shows the current step */
+}
+@media (max-width: 600px) {
+  .evt-hint { display: none; }
+  .evt-heading { padding-bottom: 36px; }
+}
